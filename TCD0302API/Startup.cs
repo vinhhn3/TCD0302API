@@ -1,17 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TCD0302API.Data;
+using TCD0302API.Repositories;
+using TCD0302API.Repositories.Interfaces;
 
 namespace TCD0302API
 {
@@ -29,6 +24,9 @@ namespace TCD0302API
     {
       services.AddDbContext<ApplicationDbContext>(
         options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+      // Add Repositories services
+      services.AddScoped<IParkRepository, ParkRepository>();
 
       services.AddControllers();
     }
