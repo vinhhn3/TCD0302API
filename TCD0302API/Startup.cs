@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -5,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TCD0302API.Data;
+using TCD0302API.Mapper;
 using TCD0302API.Repositories;
 using TCD0302API.Repositories.Interfaces;
 
@@ -27,6 +29,9 @@ namespace TCD0302API
 
       // Add Repositories services
       services.AddScoped<IParkRepository, ParkRepository>();
+
+      // Add Mapping
+      services.AddAutoMapper(typeof(ApiMapping));
 
       services.AddControllers();
     }
