@@ -33,6 +33,17 @@ namespace TCD0302API
       // Add Mapping
       services.AddAutoMapper(typeof(ApiMapping));
 
+      // Configure Swagger services
+      services.AddSwaggerGen(options =>
+      {
+        options.SwaggerDoc("v1",
+          new Microsoft.OpenApi.Models.OpenApiInfo()
+          {
+            Title = "TCD0302 Api",
+            Version = "v1",
+          });
+      });
+
       services.AddControllers();
     }
 
@@ -45,6 +56,13 @@ namespace TCD0302API
       }
 
       app.UseHttpsRedirection();
+
+      // Use Swagger
+      app.UseSwagger();
+      app.UseSwaggerUI(options =>
+      {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "TCD0302 Api");
+      });
 
       app.UseRouting();
 
