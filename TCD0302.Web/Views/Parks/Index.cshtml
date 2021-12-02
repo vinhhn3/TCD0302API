@@ -1,0 +1,16 @@
+﻿@model IEnumerable<ParkViewModel>
+@{
+  ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<ul>
+  @foreach (var item in Model)
+  {
+    <li>Name: @item.Name</li>
+    <li>State: @item.State</li>
+    <li>Established Date: @item.Established.ToShortDateString()</li>
+  }
+</ul>
+
