@@ -24,6 +24,13 @@ namespace TCD0302.Web
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddControllersWithViews();
+
+      // Config HttpClient
+      services.AddHttpClient("ParkService", options =>
+      {
+        options.DefaultRequestHeaders.Add("Accpet", "application/json");
+        options.BaseAddress = new Uri("http://localhost:60250");
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
