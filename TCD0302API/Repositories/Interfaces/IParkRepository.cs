@@ -12,6 +12,5 @@ namespace TCD0302API.Repositories.Interfaces
     bool CreatePark(Park park);
     bool UpdatePark(Park park);
     bool DeletePark(Park park);
-    bool Save();
   }
 }

@@ -49,7 +49,7 @@ namespace TCD0302API.Repositories
         p => p.Name.ToLower().Trim().Equals(name.ToLower().Trim()));
     }
 
-    public bool Save()
+    private bool Save()
     {
       return _context.SaveChanges() >= 0 ? true : false;
     }
