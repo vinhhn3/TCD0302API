@@ -28,7 +28,7 @@ namespace TCD0302.Web
       // Config HttpClient
       services.AddHttpClient("ParkService", options =>
       {
-        options.DefaultRequestHeaders.Add("Accpet", "application/json");
+        options.DefaultRequestHeaders.Add("Accept", "application/json");
         options.BaseAddress = new Uri("http://localhost:60250");
       });
     }

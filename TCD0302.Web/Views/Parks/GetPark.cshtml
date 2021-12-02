@@ -1,0 +1,13 @@
+﻿@model ParkViewModel
+@{
+  ViewData["Title"] = "GetPark";
+}
+
+<h1>Get Park</h1>
+
+<ul>
+  <li>Name: @Model.Name</li>
+  <li>State: @Model.State</li>
+  <li>Established Date: @Model.Established.ToShortDateString()</li>
+</ul>
+

@@ -66,6 +66,8 @@ namespace TCD0302API
 
       app.UseRouting();
 
+
+
       app.UseAuthorization();
 
       app.UseEndpoints(endpoints =>
