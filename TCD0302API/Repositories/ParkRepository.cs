@@ -22,7 +22,9 @@ namespace TCD0302API.Repositories
 
     public bool DeletePark(Park park)
     {
-      _context.Remove(park);
+      var parkInDb = GetPark(park.Id);
+      if (parkInDb == null) return false;
+      _context.Remove(parkInDb);
       return Save();
     }
 
@@ -56,7 +58,12 @@ namespace TCD0302API.Repositories
 
     public bool UpdatePark(Park park)
     {
-      _context.Parks.Update(park);
+      var parkInDb = GetPark(park.Id);
+      if (parkInDb == null) return false;
+      parkInDb.Name = park.Name;
+      parkInDb.State = park.State;
+      parkInDb.CreatedAt = park.CreatedAt;
+      parkInDb.Established = park.Established;
       return Save();
     }
   }
